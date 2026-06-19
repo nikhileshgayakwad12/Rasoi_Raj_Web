@@ -413,7 +413,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .section-content h2, .main-heading {
     font-family: var(--font-serif);
-    font-size: 2.8rem;
+    font-size: clamp(1.9rem, 4.5vw, 2.8rem);
     font-weight: 700;
     line-height: 1.2;
     color: var(--cream);
@@ -520,7 +520,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .showcase-header h2 {
     font-family: var(--font-serif);
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
     color: var(--cream);
     margin-bottom: 20px;
@@ -632,7 +632,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .order-details-card h2 {
     font-family: var(--font-serif);
-    font-size: 3.2rem;
+    font-size: clamp(2rem, 5vw, 3.2rem);
     font-weight: 700;
     line-height: 1.15;
     margin-bottom: 25px;
@@ -832,26 +832,92 @@ body::-webkit-scrollbar-thumb:hover {
     opacity: 0.6;
 }
 
+/* Mobile Toggle Menu Styles */
+.mobile-nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.hamburger-box {
+    display: inline-block;
+    width: 24px;
+    height: 18px;
+    position: relative;
+}
+
+.hamburger-line,
+.hamburger-line::before,
+.hamburger-line::after {
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: var(--cream);
+    border-radius: 2px;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s;
+}
+
+.hamburger-line {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger-line::before {
+    content: '';
+    top: -8px;
+}
+
+.hamburger-line::after {
+    content: '';
+    bottom: -8px;
+}
+
+/* Active hamburger animation state */
+.menu-open .hamburger-line {
+    background-color: transparent;
+}
+
+.menu-open .hamburger-line::before {
+    transform: translateY(8px) rotate(45deg);
+    background-color: var(--saffron);
+}
+
+.menu-open .hamburger-line::after {
+    transform: translateY(-8px) rotate(-45deg);
+    background-color: var(--saffron);
+}
+
+/* Scroll lock when mobile menu is active */
+body.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Global Safety scale rules */
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
 /* --- Responsive Media Queries --- */
 
-@media (max-width: 992px) {
-    .order-grid {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
-    
+@media (max-width: 1200px) {
     .scroll-section {
-        padding-left: 5%;
-        padding-right: 5%;
+        padding-left: 8%;
     }
-    
-    .section-content {
-        max-width: 500px;
-        padding: 40px;
+}
+
+@media (max-width: 1024px) {
+    .scroll-section {
+        padding-left: 6%;
+        padding-right: 6%;
     }
-    
-    .section-content h2, .main-heading {
-        font-size: 2.3rem;
+    .spice-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 }
 
@@ -860,14 +926,57 @@ body::-webkit-scrollbar-thumb:hover {
         --header-height: 70px;
     }
     
+    .mobile-nav-toggle {
+        display: block;
+    }
+    
+    /* Modify main nav to behave as slide drawer on mobile */
     .main-nav {
-        display: none; /* Hide standard nav on mobile for simplicity, cta button kept */
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-left: 1px solid var(--glass-border);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 95;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .main-nav.mobile-active {
+        right: 0;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        width: 100%;
+    }
+    
+    .main-nav .nav-link {
+        font-size: 1.2rem;
+        padding: 10px 0;
     }
     
     .header-container {
-        padding: 0 20px;
+        padding: 0 24px;
     }
     
+    .cta-button-nav {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+        margin-right: 15px; /* Spacing between button and toggle */
+    }
+    
+    /* Center the narrative cards */
     .scroll-section {
         justify-content: center;
         padding: 0 20px;
@@ -875,32 +984,81 @@ body::-webkit-scrollbar-thumb:hover {
     
     .section-content {
         max-width: 100%;
-        padding: 30px 20px;
+        width: 100%;
+        padding: 35px 25px;
+        margin: 0 auto;
     }
     
-    .section-content h2, .main-heading {
-        font-size: 2rem;
+    .spice-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
     }
     
-    .showcase-header h2 {
-        font-size: 2.2rem;
+    .order-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
     }
     
-    .order-details-card h2 {
-        font-size: 2.2rem;
+    .showcase-section, .order-section {
+        padding: 80px 0;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+    }
+    
+    .footer-links ul {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-content {
+        padding: 25px 20px;
+    }
+    
+    .explore-btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+    
+    .cta-button-nav {
+        display: none; /* Hide header CTA button on small mobile screen to prevent collision */
+    }
+    
+    .main-header.scrolled {
+        height: 60px;
+    }
+    
+    .showcase-header {
+        margin-bottom: 40px;
     }
     
     .order-form-card {
         padding: 30px 20px;
     }
     
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-    
-    .footer-links ul {
+    .pricing-badge {
+        width: 100%;
         justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 360px) {
+    .brand-title {
+        font-size: 1.3rem;
+    }
+    .brand-subtitle {
+        font-size: 0.65rem;
+    }
+    .section-content h2, .main-heading {
+        font-size: 1.6rem;
     }
 }

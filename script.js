@@ -241,6 +241,31 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Mobile Hamburger Menu Handling
+const menuToggle = document.getElementById('menu-toggle');
+const mainNav = document.querySelector('.main-nav');
+const navLinks = document.querySelectorAll('.nav-link');
+
+if (menuToggle && mainNav) {
+    menuToggle.addEventListener('click', () => {
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !isExpanded);
+        menuToggle.classList.toggle('menu-open');
+        mainNav.classList.toggle('mobile-active');
+        document.body.classList.toggle('no-scroll');
+    });
+
+    // Close menu when a link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.classList.remove('menu-open');
+            mainNav.classList.remove('mobile-active');
+            document.body.classList.remove('no-scroll');
+        });
+    });
+}
+
 // Initialize Application
 document.addEventListener('DOMContentLoaded', () => {
     preloadImages();
