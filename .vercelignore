@@ -1,0 +1,14 @@
+# Exclude local server utilities and Windows batch files
+server.js
+app.js
+run_server.bat
+
+# Exclude temporary text logs
+server_log.txt
+where_node.txt
+node_cmd.txt
+hello.txt
+ps_test.txt
+node_v.txt
+where_node.txt
+test_echo.txt
