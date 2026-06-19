@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rasoi Raja Garam Masala - Taste of Village | Premium Indian Spices</title>
+    <meta name="description" content="Witness the alchemy of premium traditional spices. Scroll through a mesmerizing visual journey of Rasoi Raja Garam Masala, crafted from authentic village recipes.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Premium Preloader -->
+    <div id="preloader" role="status" aria-live="polite">
+        <div class="preloader-content">
+            <div class="spice-spinner-container">
+                <div class="spice-spinner"></div>
+                <div class="spice-spinner-inner"></div>
+                <div class="spice-particles">
+                    <span class="particle p1"></span>
+                    <span class="particle p2"></span>
+                    <span class="particle p3"></span>
+                    <span class="particle p4"></span>
+                </div>
+            </div>
+            <h2 class="preloader-brand">RASOI RAJA</h2>
+            <p class="preloader-sub">Gathering organic village spices...</p>
+            <div class="progress-track">
+                <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+            </div>
+            <div class="progress-percent" id="progress-percent">0%</div>
+        </div>
+    </div>
+
+    <!-- Premium Header/Nav -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="brand-logo" id="logo-nav">
+                <span class="brand-title">Rasoi Raja</span>
+                <span class="brand-subtitle">Garam Masala</span>
+            </a>
+            <nav class="main-nav" aria-label="Primary Navigation">
+                <ul>
+                    <li><a href="#hero-trigger" class="nav-link active" id="nav-home">The Story</a></li>
+                    <li><a href="#showcase-trigger" class="nav-link" id="nav-spices">Our Ingredients</a></li>
+                    <li><a href="#order-trigger" class="nav-link" id="nav-order">Buy Now</a></li>
+                </ul>
+            </nav>
+            <a href="#order-trigger" class="cta-button-nav" id="nav-cta">Order Now</a>
+        </div>
+    </header>
+
+    <!-- Background Canvas Container -->
+    <div class="canvas-container" id="canvas-container">
+        <canvas id="animation-canvas"></canvas>
+        <div class="canvas-overlay"></div>
+    </div>
+
+    <!-- Scroll Narrative Content -->
+    <main class="scroll-wrapper">
+        
+        <!-- Section 1: Hero -->
+        <section class="scroll-section hero-section" id="hero-trigger">
+            <div class="section-content hero-content glass-card">
+                <span class="section-tag">Culinary Masterpiece</span>
+                <h1 class="main-heading">A Symphony of Village Flavors</h1>
+                <p class="section-desc">Step into the rustic kitchen where flavor is born. Sourced from organic, sun-drenched fields, Rasoi Raja brings you spices in their purest, most vibrant form.</p>
+                <div class="scroll-indicator" aria-hidden="true">
+                    <span class="mouse-icon">
+                        <span class="mouse-wheel"></span>
+                    </span>
+                    <span class="scroll-text">Scroll to Blend</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Sourcing -->
+        <section class="scroll-section sourcing-section" id="sourcing-trigger">
+            <div class="section-content sourcing-content glass-card">
+                <span class="section-tag">Pure Ingredients</span>
+                <h2>Selected by Hand, Crafted with Care</h2>
+                <p class="section-desc">Sun-dried cinnamon bark, green cardamoms, fiery red chilies, aromatic cloves, and select bay leaves. Each ingredient is sourced directly from sustainable local farms, preserving ancestral harvesting traditions.</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Vortex / The Alchemy -->
+        <section class="scroll-section blend-section" id="blend-trigger">
+            <div class="section-content blend-content glass-card">
+                <span class="section-tag">Traditional Craft</span>
+                <h2>The Alchemical Vortex</h2>
+                <p class="section-desc">Watch them dance, spin, and unify. Our proprietary low-temperature grinding process preserves the volatile oils of the spices, locking in unmatched aroma, color, and culinary magic.</p>
+            </div>
+        </section>
+
+        <!-- Section 4: The Masterpiece Reveal -->
+        <section class="scroll-section masterpiece-section" id="reveal-trigger">
+            <div class="section-content masterpiece-content glass-card">
+                <span class="section-tag">The Final Blend</span>
+                <h2>The Taste of Village Traditions</h2>
+                <p class="section-desc">Presenting the final masterpiece—Rasoi Raja Garam Masala. The crown jewel of Indian cooking, ready to elevate your culinary creations to majestic heights.</p>
+                <a href="#showcase-trigger" class="explore-btn" id="btn-explore">Explore Spices</a>
+            </div>
+        </section>
+
+        <!-- Section 5: Showcase & Interactive Section -->
+        <section class="showcase-section" id="showcase-trigger">
+            <div class="showcase-container">
+                <div class="showcase-header">
+                    <span class="section-tag center">The Secrets Within</span>
+                    <h2>Four Pillars of Flavor</h2>
+                    <p class="showcase-subtitle">Our signature garam masala blends 15+ spices, balanced perfectly around these core pillars.</p>
+                </div>
+
+                <!-- Spice Cards Grid -->
+                <div class="spice-grid">
+                    <div class="spice-card" id="card-cinnamon">
+                        <div class="card-bg-gradient cinnamon-grad"></div>
+                        <div class="spice-card-content">
+                            <div class="spice-icon">🪵</div>
+                            <h3>Ceylon Cinnamon</h3>
+                            <p>Provides a sweet, woody warmth that lingers gently on the palate, stimulating digestion and depth.</p>
+                        </div>
+                    </div>
+                    <div class="spice-card" id="card-chili">
+                        <div class="card-bg-gradient chili-grad"></div>
+                        <div class="spice-card-content">
+                            <div class="spice-icon">🌶️</div>
+                            <h3>Fiery Red Chili</h3>
+                            <p>Hand-picked for its brilliant color and balanced heat, providing the signature kick of village cookery.</p>
+                        </div>
+                    </div>
+                    <div class="spice-card" id="card-cardamom">
+                        <div class="card-bg-gradient cardamom-grad"></div>
+                        <div class="spice-card-content">
+                            <div class="spice-icon">🟢</div>
+                            <h3>Green Cardamom</h3>
+                            <p>Brings a citrusy, herbal fragrance that brightens the blend and leaves a cooling, sophisticated aftertaste.</p>
+                        </div>
+                    </div>
+                    <div class="spice-card" id="card-cloves">
+                        <div class="card-bg-gradient cloves-grad"></div>
+                        <div class="spice-card-content">
+                            <div class="spice-icon">🌿</div>
+                            <h3>Aromatic Cloves</h3>
+                            <p>Intense, warm, and highly aromatic. Packed with essential oils that define the deep profile of garam masala.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Order / CTA Section -->
+        <section class="order-section" id="order-trigger">
+            <div class="order-container">
+                <div class="order-grid">
+                    <div class="order-details-card">
+                        <span class="section-tag">Bring It Home</span>
+                        <h2>Experience the Spice Revolution</h2>
+                        <p class="order-promo-desc">Ready to bring the authentic flavor of the village to your kitchen? Order your premium pack of Rasoi Raja Garam Masala today. Each box is packed under vacuum seals to guarantee freshness for up to 12 months.</p>
+                        
+                        <div class="promo-highlights">
+                            <div class="promo-item">
+                                <span class="promo-icon">✓</span>
+                                <span>100% Organic & Chemical-Free</span>
+                            </div>
+                            <div class="promo-item">
+                                <span class="promo-icon">✓</span>
+                                <span>Sourced Directly from Village Farmers</span>
+                            </div>
+                            <div class="promo-item">
+                                <span class="promo-icon">✓</span>
+                                <span>Traditional Stone-Ground Method</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pricing-badge">
+                            <span class="price-old">₹180</span>
+                            <span class="price-new">₹149</span>
+                            <span class="price-label">for 100g premium pack</span>
+                        </div>
+                    </div>
+
+                    <div class="order-form-card glass-card">
+                        <h3>Reserve Your Pack</h3>
+                        <form id="order-form" onsubmit="event.preventDefault(); alert('Thank you! Your order has been registered (Demo mode).');">
+                            <div class="form-group">
+                                <label for="form-name">Full Name</label>
+                                <input type="text" id="form-name" placeholder="E.g., Rajesh Kumar" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-email">Email Address</label>
+                                <input type="email" id="form-email" placeholder="rajesh@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-quantity">Quantity (Packs)</label>
+                                <select id="form-quantity">
+                                    <option value="1">1 Premium Pack (100g) - ₹149</option>
+                                    <option value="2">2 Premium Packs (200g) - ₹279 (Save ₹19)</option>
+                                    <option value="5">5 Premium Packs (500g) - ₹649 (Save ₹96)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-address">Delivery Address</label>
+                                <textarea id="form-address" rows="3" placeholder="Enter your full street address and pin code" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn" id="btn-submit-order">Order Now (Cash on Delivery)</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Rasoi Raja</h3>
+                <p>Taste of Village, Health of Home.</p>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#hero-trigger">Back to Top</a></li>
+                    <li><a href="#showcase-trigger">Ingredients</a></li>
+                    <li><a href="#order-trigger">Purchase</a></li>
+                </ul>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 Rasoi Raja Spices Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Script -->
+    <script src="app.js"></script>
+</body>
+</html>
